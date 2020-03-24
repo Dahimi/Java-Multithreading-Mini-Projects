@@ -14,7 +14,7 @@ public class Room {
 	}
 	public static void main(String[] args) {
 		Snake snake = new Snake(3,9);
-		 game = new Room(100,100,snake);
+		 game = new Room(20,15,snake);
 		snake.setDirection(SnakeDirection.DOWN);
 		game.createMouse();
 		game.run();
@@ -55,12 +55,51 @@ public class Room {
 	}
 	public void run() {
 		sleep();
+		print();
 	}
 	public void print() {
 		
+		        // Create an array where we will "draw" the current game state
+		        // Draw all the parts of the snake
+		        // Draw the mouse
+		        // Display it all on the screen
+		
+		 int[][] grid = new int[height][width];
+		    for (SnakeSection s:snake.getSections()) {
+		        //make snake body into 1;
+		        grid[s.getY()][s.getX()] = 1;
+
+		    }
+		    //make snake head
+		    grid[snake.getY()][snake.getX()] = 2;
+		    //make mouse
+		    grid[mouse.getY()][mouse.getX()] = 3;
+		    StringBuilder sb = new StringBuilder();
+		    for (int i = 0; i < height; i++) {
+		        for (int j = 0; j < width; j++) {
+		            if (grid[i][j] == 1)
+		                sb.append("x");
+		            else if (grid[i][j] == 2)
+		                sb.append("X");
+		            else if (grid[i][j] == 3)
+		                sb.append("^");
+		            else
+		                sb.append(".");
+		        }
+		        sb.append("\n");
+		    }
+		    System.out.println(sb.toString());
+		
 	}
 	public void sleep() {
-		
+		try {
+		if(snake.getSections().size() < 11) Thread.sleep(500);
+		else if(snake.getSections().size() < 15) Thread.sleep(300);
+		else  Thread.sleep(200);
+		}
+		catch(InterruptedException e) {
+			
+		}
 	}
 
 }
