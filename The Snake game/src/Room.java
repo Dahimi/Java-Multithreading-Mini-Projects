@@ -4,7 +4,10 @@ public class Room {
     private  int height ;
     private  Snake snake ;
     private Mouse mouse ;
+	private int initialDelay = 520;
+	private int delayStep =20;
     public static Room game ;
+   
     public Room(int width, int height, Snake snake) {
 		
 		this.width = width;
@@ -64,42 +67,39 @@ public class Room {
 		        // Draw the mouse
 		        // Display it all on the screen
 		
-		 int[][] grid = new int[height][width];
-		    for (SnakeSection s:snake.getSections()) {
-		        //make snake body into 1;
-		        grid[s.getY()][s.getX()] = 1;
+	char[][] draw = new char[width][height];
+	for(int i = 0 ; i < width ; i++) {
+		for(int j = 0 ; j < height ; j++) {
+			
+			draw[i][j] = '.';
+		}
+	}
+			// drawing the mouse
+	draw[mouse.getX()][mouse.getY()] ='x';
+			// drawing the sanke Head
+	draw[snake.getX()][snake.getY()] = 'o';
+			// drawing the snake sections
 
-		    }
-		    //make snake head
-		    grid[snake.getY()][snake.getX()] = 2;
-		    //make mouse
-		    grid[mouse.getY()][mouse.getX()] = 3;
-		    StringBuilder sb = new StringBuilder();
-		    for (int i = 0; i < height; i++) {
-		        for (int j = 0; j < width; j++) {
-		            if (grid[i][j] == 1)
-		                sb.append("x");
-		            else if (grid[i][j] == 2)
-		                sb.append("X");
-		            else if (grid[i][j] == 3)
-		                sb.append("^");
-		            else
-		                sb.append(".");
-		        }
-		        sb.append("\n");
-		    }
-		    System.out.println(sb.toString());
+	for(SnakeSection section : snake.getSections()) {
+		
+		draw[section.getX()][section.getY()] ='x';
+	}
+	for(int i = 0 ; i < width ; i++) {
+		
+		for(int j = 0 ; j< height ; j++) {
+			System.out.print(draw[i][j]);
+		}
+		System.out.println();
+	}
 		
 	}
 	public void sleep() {
-		try {
-		if(snake.getSections().size() < 11) Thread.sleep(500);
-		else if(snake.getSections().size() < 15) Thread.sleep(300);
-		else  Thread.sleep(200);
-		}
-		catch(InterruptedException e) {
-			
-		}
+		  try {
+	            int level = snake.getSections().size();
+	            int delay = level < 15 ? (initialDelay - delayStep * level) : 200;
+	            Thread.sleep(delay);
+	        } catch (InterruptedException e) {
+	        }
 	}
 
 }
