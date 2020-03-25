@@ -62,35 +62,37 @@ public class Room {
 	}
 	public void print() {
 		
-		        // Create an array where we will "draw" the current game state
-		        // Draw all the parts of the snake
-		        // Draw the mouse
-		        // Display it all on the screen
-		
-	char[][] draw = new char[width][height];
-	for(int i = 0 ; i < width ; i++) {
-		for(int j = 0 ; j < height ; j++) {
-			
-			draw[i][j] = '.';
-		}
-	}
-			// drawing the mouse
-	draw[mouse.getX()][mouse.getY()] ='x';
-			// drawing the sanke Head
-	draw[snake.getX()][snake.getY()] = 'o';
-			// drawing the snake sections
 
-	for(SnakeSection section : snake.getSections()) {
-		
-		draw[section.getX()][section.getY()] ='x';
-	}
-	for(int i = 0 ; i < width ; i++) {
-		
-		for(int j = 0 ; j< height ; j++) {
-			System.out.print(draw[i][j]);
-		}
-		System.out.println();
-	}
+        // Create an array where we will "draw" the current game state
+        // Draw all the parts of the snake
+        // Draw the mouse
+        // Display it all on the screen
+
+ int[][] grid = new int[height][width];
+    for (SnakeSection s:snake.getSections()) {
+        //make snake body into 1;
+        grid[s.getY()][s.getX()] = 1;
+
+    }
+    //make snake head
+    grid[snake.getY()][snake.getX()] = 2;
+    //make mouse
+    grid[mouse.getY()][mouse.getX()] = 3;
+    StringBuilder sb = new StringBuilder();
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            if (grid[i][j] == 1)
+                sb.append("x");
+            else if (grid[i][j] == 2)
+                sb.append("X");
+            else if (grid[i][j] == 3)
+                sb.append("^");
+            else
+                sb.append(".");
+        }
+        sb.append("\n");
+    }
+    System.out.println(sb.toString());
 		
 	}
 	public void sleep() {
