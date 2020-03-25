@@ -10,17 +10,18 @@ public class Snake {
 	 private boolean isAlive ;
 	 private List<SnakeSection> sections ;
 	    private SnakeDirection direction ;
+	    private SnakeSection head  ;
 	    public Snake(int x , int y){
 	        isAlive = true;
-	        SnakeSection head = new SnakeSection(x,y);
+	         head = new SnakeSection(x,y);
 	        sections = new ArrayList<SnakeSection>();
-	        sections.add(head);
+	       
 	    }
 	    public int getX(){
-	        return sections.get(0).getX();
+	        return head.getX();
 	    }
 	    public int getY(){
-	        return sections.get(0).getY();
+	        return head.getY();
 	    }
 	    public boolean isAlive(){
 	        return isAlive ;
@@ -52,4 +53,11 @@ public class Snake {
 	    public void move(int x , int y){
 	        
 	    }
+	    public void checkBorders(SnakeSection head) {
+			   isAlive =(head.getX() >= Room.game.getWidth() || head.getX() < 0) ? false :( (head.getY() < 0 || head.getY() >= Room.game.getHeight() ) ? false : true)  ;
+			    	   
+	}		
+			 public void checkBody(SnakeSection head) {
+				 isAlive = ! sections.contains(head);
+			 }
 }
