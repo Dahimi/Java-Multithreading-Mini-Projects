@@ -14,4 +14,10 @@ public class Ball extends BaseObject {
 		
 	}
 
+	@Override
+	public void draw(Canvas canvas) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

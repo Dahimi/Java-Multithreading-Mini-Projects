@@ -1,6 +1,6 @@
 package Game_Package;
 
-public  class BaseObject {
+public abstract  class BaseObject {
 	private  double x;
 	private double y;
 	private  double radius;
@@ -27,8 +27,14 @@ public  class BaseObject {
 		this.x = x;
 		this.y = y;
 	}
-	public void move() {
-		
+	public abstract void move();
+	public abstract void draw(Canvas canvas);
+	public boolean intersects(BaseObject object) {
+		return distance(object) <= Math.max(this.radius, object.getRadius());
+	}
+	private double distance(BaseObject object) {
+		double sq =  (this.getX() - object.getX()) * (this.getX() - object.getX()) + (this.getY() - object.getY())*(this.getY() - object.getY());
+		return Math.sqrt(sq);
 	}
 
 	

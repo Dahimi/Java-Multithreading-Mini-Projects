@@ -11,7 +11,13 @@ public class Brick extends BaseObject {
 
 	public void move() {
 		// TODO Auto-generated method stub
-		
+	
 	}
 
+	@Override
+	public void draw(Canvas canvas) {
+		// TODO Auto-generated method stub
+		
+	}
+  
 }

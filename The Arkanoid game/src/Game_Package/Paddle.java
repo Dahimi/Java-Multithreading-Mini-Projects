@@ -13,4 +13,10 @@ public class Paddle extends BaseObject {
 		
 	}
 
+	@Override
+	public void draw(Canvas canvas) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
