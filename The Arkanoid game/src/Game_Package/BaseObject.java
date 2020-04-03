@@ -1,9 +1,9 @@
 package Game_Package;
 
 public abstract  class BaseObject {
-	private  double x;
-	private double y;
-	private  double radius;
+	protected  double x;
+	protected double y;
+	protected  double radius;
 	public double getX() {
 		return x;
 	}
