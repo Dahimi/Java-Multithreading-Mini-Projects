@@ -8,6 +8,7 @@ public class Arkanoid {
 	private Ball ball;
 	private Paddle paddle;
 	private List<Brick> bricks ;
+	private boolean isGameOver = false;
 	public static Arkanoid game;
 	public Ball getBall() {
 		return ball;
@@ -54,6 +55,35 @@ public class Arkanoid {
 		move();
 	}
 	public void move() {
-		
+		paddle.move();
+		ball.move();
 	}
+	public void draw(Canvas canvas) {
+		for(Brick brick : bricks) {
+			brick.draw(canvas );
+		}
+		paddle.draw(canvas);
+		ball.draw(canvas);
+	}
+	public void checkBrickCollision() {
+		List<Brick> bricks_copy = new ArrayList<Brick>(bricks);
+		for(Brick brick : bricks_copy) {
+		if(	ball.intersects(brick)) {
+			bricks.remove(brick);
+			double angle = Math.random() * 360;
+			ball.setDirection(angle);
+			return;
+		}
+		}
+	}
+	public void checkPaddleCollision() {
+		if(ball.intersects(paddle)) {
+			double angle = 90 + 20 * (Math.random() - 0.5);
+			ball.setDirection(angle);
+		}
+	}
+	public void checkGameOver() {
+		isGameOver = ball.getY() > this.height;
+	}
+	
 }
