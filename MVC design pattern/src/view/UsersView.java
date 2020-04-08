@@ -6,22 +6,23 @@ import bean.User;
 import model.DataModel;
 
 public class UsersView implements View{
-	ControllerInterface controller ;
-	public void setController(ControllerInterface controller) {
-		this.controller = controller;
-	}
-	public void refresh(DataModel dataModel) {
+	private Controller controller ;
+		public void refresh(DataModel dataModel) {
 		System.out.println("All users:");
 		for(User user : dataModel.getUsers()) {
-			System.out.println(user);
+			System.out.println("\t" + user);
 		}
 		System.out.println("===================================================");
 	}
-	public void setController(Controller controller) {
-		
-	}
+	
 	public void fireShowAllUsersEvent() {
-		controller.onShowallUsers();
+		controller.onShowAllUsers();
+	}
+	@Override
+	public void setController(Controller controller) {
+		// TODO Auto-generated method stub
+		this.controller  = controller;
+		
 	}
 
 

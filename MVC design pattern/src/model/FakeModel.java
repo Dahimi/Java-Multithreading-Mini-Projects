@@ -3,12 +3,12 @@ import java.util.*;
 
 import bean.User;
 public class FakeModel implements Model{
-DataModel dataModel = new DataModel();
+	private DataModel dataModel = new DataModel();
 
 	@Override
 	public DataModel getDataModel() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.dataModel;
 	}
 
 	@Override
@@ -23,6 +23,7 @@ DataModel dataModel = new DataModel();
 				
 			}
 		};
+		dataModel.setUsers(list);
 		
 	}
 	
