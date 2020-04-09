@@ -16,9 +16,9 @@ public class FakeModel implements Model{
 		// TODO Auto-generated method stub
 		List<User> list = new ArrayList() {
 			{ 
-				 add(new User("Franklin", 123l, 1));
+				 add(new User("Franklin", 13l, 1));
 			        add(new User("Sanchez", 124l, 2));
-			        add(new User("Sanchez", 125l, 1));
+			        add(new User("Sanchhhhez", 125l, 1));
 			        add(new User("Smith", 126l, 2));
 				
 			}
