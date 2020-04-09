@@ -6,5 +6,6 @@ import model.DataModel;
 public interface View {
 	void refresh(DataModel dataModel) ;
 	void setController(Controller controller);
+	void fireShowDeletedUsersEvent();
 
 }

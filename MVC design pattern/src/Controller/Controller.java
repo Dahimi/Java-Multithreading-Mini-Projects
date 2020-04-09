@@ -23,7 +23,10 @@ public class Controller implements ControllerInterface{
 		usersView.refresh(model.getDataModel());
 
 	}
-
+	public void onShowAllDeletedUsers() {
+		model.loadDeletedUsers();
+		usersView.refresh(model.getDataModel());
+		}
 	public void setUsersView(UsersView usersView2) {
 		this.usersView = usersView2;
 	}

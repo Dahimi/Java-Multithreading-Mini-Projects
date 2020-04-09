@@ -24,6 +24,13 @@ public class MainModel implements Model{
 		dataModel.setUsers(userService.getUsersBetweenLevels(1, 100));
 		
 	}
+
+	@Override
+	public void loadDeletedUsers() {
+		// TODO Auto-generated method stub
+		List users = userService.getAllDeletedUsers();
+		dataModel.setUsers(users);
+	}
 	
 
 }

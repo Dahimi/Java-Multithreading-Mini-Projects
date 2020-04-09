@@ -26,5 +26,11 @@ public class FakeModel implements Model{
 		dataModel.setUsers(list);
 		
 	}
+
+	@Override
+	public void loadDeletedUsers() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
+	}
 	
 }

@@ -16,5 +16,6 @@ public class User_Emulated {
         controller.setUsersView(usersView);
 
         usersView.fireShowAllUsersEvent();
+        usersView.fireShowDeletedUsersEvent();
     }
 }
