@@ -3,11 +3,14 @@ package Controller;
 import com.sun.glass.ui.View;
 
 import model.Model;
+import view.EditUserView;
 import view.UsersView;
 
 public class Controller implements ControllerInterface{
 	private Model model;
 	private UsersView usersView;
+	private EditUserView editUserView;
+	
 	public Model getModel() {
 		return model;
 	}
@@ -15,7 +18,9 @@ public class Controller implements ControllerInterface{
 	public void setModel(Model model) {
 		this.model = model;
 	}
-
+	public void setEditUserView(EditUserView editUserView){
+	    this.editUserView  = editUserView;
+	}
 	@Override
 	public void onShowAllUsers() {
 		// TODO ,jAuto-generated method stub
@@ -25,6 +30,7 @@ public class Controller implements ControllerInterface{
 	}
 	public void onShowAllDeletedUsers() {
 		model.loadDeletedUsers();
+		
 		usersView.refresh(model.getDataModel());
 		}
 	public void setUsersView(UsersView usersView2) {

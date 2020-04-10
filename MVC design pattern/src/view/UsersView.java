@@ -8,7 +8,9 @@ import model.DataModel;
 public class UsersView implements View{
 	private Controller controller ;
 		public void refresh(DataModel dataModel) {
-		System.out.println("All users:");
+		
+		if(dataModel.isDisplayDeletedUserList())  System.out.println("All deleted users:");
+		else System.out.println("All users:");
 		for(User user : dataModel.getUsers()) {
 			System.out.println("\t" + user);
 		}
