@@ -22,6 +22,7 @@ public class MainModel implements Model{
 		// TODO Auto-generated method stub
 		 
 		dataModel.setUsers(userService.getUsersBetweenLevels(1, 100));
+		dataModel.setDisplayDeletedUserList(false);
 		
 	}
 
@@ -30,6 +31,15 @@ public class MainModel implements Model{
 		// TODO Auto-generated method stub
 		List users = userService.getAllDeletedUsers();
 		dataModel.setUsers(users);
+		dataModel.setDisplayDeletedUserList(true);
+	}
+
+	@Override
+	public void loadUserById(long userId) {
+		// TODO Auto-generated method stub
+		User user = userService.getUsersById(userId);
+		dataModel.setActiveUser(user);
+		
 	}
 	
 

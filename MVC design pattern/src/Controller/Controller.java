@@ -36,6 +36,14 @@ public class Controller implements ControllerInterface{
 	public void setUsersView(UsersView usersView2) {
 		this.usersView = usersView2;
 	}
+
+	public void onOpenUserEditForm(long userId) {
+		// TODO Auto-generated method stub
+		model.loadUserById(userId);
+		
+		editUserView.refresh(model.getDataModel());
+		
+	}
 	
 
 }
