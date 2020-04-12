@@ -46,7 +46,7 @@ public class MainModel implements Model{
 	@Override
 	public void deleteUserById(long id) {
 		userService.deleteUser(id);		
-				
+		dataModel.setUsers(getAllUsers());		
 	}
 	private List<User> getAllUsers(){
 		return userService.filterOnlyActiveUsers(userService.getUsersBetweenLevels(1, 100));}
