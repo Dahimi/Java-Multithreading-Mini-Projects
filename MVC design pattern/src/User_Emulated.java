@@ -15,10 +15,12 @@ public class User_Emulated {
         controller.setEditUserView(editUserView);
        
         usersView.setController(controller);
+        editUserView.setController(controller);
         controller.setModel(model);
         controller.setUsersView(usersView);
         usersView.fireOpenUserEditFormEvent(123);
         usersView.fireShowAllUsersEvent();
+        editUserView.fireUserDeletedEvent(124L);
         usersView.fireShowDeletedUsersEvent();
     }
 }

@@ -38,5 +38,11 @@ public class FakeModel implements Model{
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException();
 	}
+
+	@Override
+	public void deleteUserById(long id) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
+	}
 	
 }

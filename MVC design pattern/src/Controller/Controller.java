@@ -44,6 +44,12 @@ public class Controller implements ControllerInterface{
 		editUserView.refresh(model.getDataModel());
 		
 	}
+
+	public void onDeleteUser(long id) {
+		// TODO Auto-generated method stub
+		model.deleteUserById(id);
+		usersView.refresh(model.getDataModel());
+	}
 	
 
 }

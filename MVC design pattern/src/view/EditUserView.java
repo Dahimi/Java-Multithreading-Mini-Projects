@@ -29,6 +29,9 @@ public void setController(Controller controller) {
 public void fireShowDeletedUsersEvent() {
 	controller.onShowAllDeletedUsers();
 	}
+public void fireUserDeletedEvent(long id) {
+	controller.onDeleteUser( id);}
+
 
 
 }
