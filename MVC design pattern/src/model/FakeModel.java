@@ -44,5 +44,11 @@ public class FakeModel implements Model{
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException();
 	}
+
+	@Override
+	public void changeUserData(String name, long id, int level) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
+	}
 	
 }

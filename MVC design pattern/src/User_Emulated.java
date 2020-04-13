@@ -22,5 +22,6 @@ public class User_Emulated {
         usersView.fireShowAllUsersEvent();
         editUserView.fireUserDeletedEvent(124L);
         usersView.fireShowDeletedUsersEvent();
+        editUserView.fireUserDataChangedEvent("Critiano", 123L, 12);
     }
 }

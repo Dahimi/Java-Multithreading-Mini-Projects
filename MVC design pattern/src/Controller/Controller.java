@@ -50,6 +50,12 @@ public class Controller implements ControllerInterface{
 		model.deleteUserById(id);
 		usersView.refresh(model.getDataModel());
 	}
+
+	public void onChangeUserData(String name, long id, int level) {
+		// TODO Auto-generated method stub
+		model.changeUserData(name , id , level);
+		usersView.refresh(model.getDataModel());
+	}
 	
 
 }
