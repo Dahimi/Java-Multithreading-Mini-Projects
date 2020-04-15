@@ -11,24 +11,17 @@ public class Human {
 
     protected int[] size;
 
-    protected boolean isSoldier;
+   
 
     public static final int FIRST = 1;
     public static final int SECOND = 2;
     public static final int THIRD = 3;
     public static final int FOURTH = 4;
-    private int bloodType;
+    
 
-    public void setBloodType(int code) {
-        bloodType = code;
-    }
-
-    public int getBloodType() {
-        return bloodType;
-    }
-
-    public Human(boolean isSoldier) {
-        this.isSoldier = isSoldier;
+    public Human(String name , int age ) {
+       this.name = name;
+       this.age = age ;
         this.id = nextId;
         nextId++;
     }
@@ -63,8 +56,8 @@ public class Human {
     }
 
     public void live() {
-        if (isSoldier)
-            fight();
+       
+           
     }
 
     public void fight() {
