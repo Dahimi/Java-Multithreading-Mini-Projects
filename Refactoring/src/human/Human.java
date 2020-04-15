@@ -1,14 +1,13 @@
 package human;
 import java.util.*;
 
-public class Human {
+public class Human implements Alive{
     public static int nextId = 0;
     private int id;
     private List<Human> children = new ArrayList<>();
     protected int age;
     protected String name;
-    protected int course;
-
+    
     protected int[] size;
 
    
@@ -51,10 +50,7 @@ public class Human {
     public void removeChild(Human human){
         children.remove(human);
     }
-    public int getCourse() {
-        return course;
-    }
-
+    
     public void live() {
        
            

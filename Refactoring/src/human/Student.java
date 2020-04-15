@@ -9,12 +9,16 @@ public class Student extends Human {
     private String university;
     private Date beginningOfSession;
     private Date endOfSession;
+    private int course;
 
     public Student(String name, int age, double averageGrade) {
         super(name, age);
         this.averageGrade = averageGrade;
     }
 
+    public int getCourse() {
+        return course;
+    }
 
     public void live() {
         learn();
@@ -42,7 +46,7 @@ public class Student extends Human {
     public void incAverageGradeBy02() {
         averageGrade += 0.2;
     }
-
+    
     public void setValue(String name, double value) {
         if (name.equals("averageGrade")) {
             averageGrade = value;
