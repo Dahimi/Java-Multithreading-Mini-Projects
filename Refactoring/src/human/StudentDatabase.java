@@ -20,6 +20,7 @@ public class StudentDatabase {
     public static void removeStudent(int index) throws IndexOutOfBoundsException {
         students.remove(index);
     }
+    
 
     public static void findJohnOrAlex() {
         boolean found = false;

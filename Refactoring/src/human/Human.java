@@ -9,9 +9,6 @@ public class Human implements Alive{
     protected String name;
     
     protected int[] size;
-
-   
-
     public static final int FIRST = 1;
     public static final int SECOND = 2;
     public static final int THIRD = 3;
@@ -55,9 +52,10 @@ public class Human implements Alive{
        
            
     }
-
-    public void fight() {
+    public String getPosition() {
+    	return "Person";
     }
+
 
     public int getId() {
         return id;

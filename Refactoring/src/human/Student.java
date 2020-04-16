@@ -26,9 +26,10 @@ public class Student extends Human {
 
     public void learn() {
     }
-    public void printData() {
-        System.out.println("Student: " + name);
+    public String getPosition() {
+    	return "Student";
     }
+    
 
     public void incAverageGradeBy01() {
         averageGrade += 0.1;
