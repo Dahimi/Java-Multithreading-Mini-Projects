@@ -2,7 +2,7 @@ package human;
 import java.util.*;
 
 public class Human implements Alive{
-    public static int nextId = 0;
+    private static int nextId = 0;
     private int id;
     private List<Human> children = new ArrayList<>();
     protected int age;
@@ -60,10 +60,7 @@ public class Human implements Alive{
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+  
 
     public void printSize() {
         System.out.println("Height: " + size[0] + " Weight: " + size[1]);

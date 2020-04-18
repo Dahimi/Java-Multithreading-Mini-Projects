@@ -17,24 +17,29 @@ public class StudentDatabase {
         System.out.println("Name: " + student.getName() + " Age: " + student.getAge());
     }
 
-    public static void removeStudent(int index) throws IndexOutOfBoundsException {
-        students.remove(index);
+    public static void removeStudent(int index) {
+    	try {
+        students.remove(index);}
+    	catch(IndexOutOfBoundsException e) {
+    		e.printStackTrace();
+    	}
     }
 
     public static void findJohnOrAlex() {
-        boolean found = false;
+
         for (int i = 0; i < students.size(); i++) {
-            if (!found) {
+    
                 if (students.get(i).getName().equals("John")) {
                     System.out.println("John is in the student database.");
-                    found = true;
+                    break;
+                
                 }
 
                 if (students.get(i).getName().equals("Alex")) {
                     System.out.println("Alex is in the student database.");
-                    found = true;
-                }
+                    break;
+                
             }
         }
-    }
+        }
 }
