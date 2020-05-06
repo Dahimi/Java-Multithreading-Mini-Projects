@@ -1,11 +1,23 @@
 
-public class SnakeSection {
-	 private int x ;
-	    private int y ;
+public class SnakeSection implements Cloneable{
+	 @Override
+	protected SnakeSection clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return (SnakeSection)super.clone();
+	}
+	private int x ;
+	private int y ;
 	   public  SnakeSection(int x , int y){
 	        this.x = x ;
 	        this.y = y;
 	    }
+	   public void setX(int x) {
+			this.x = x;
+		}
+
+		public void setY(int y) {
+			this.y = y;
+		}
 
 		@Override
 	public int hashCode() {
